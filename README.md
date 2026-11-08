@@ -61,7 +61,7 @@ Below is a detailed comparison of premier commercial SaaS and cloud-hosted Zero 
 
 ## 🟩 Open-Source Software
 
-Curated, community-driven, and self-hosted open-source Zero Trust solutions. The repositories below are sorted in descending order by **GitHub Stars_Count**:
+Curated, community-driven, and self-hosted open-source Zero Trust solutions. The repositories below are sorted in descending order by **GitHub_Stars_Count**:
 
 | Project / Repository | GitHub_Stars | Technology Stack | License | Key Capabilities |
 | :--- | :---: | :--- | :--- | :--- |
