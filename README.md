@@ -1,154 +1,137 @@
-# Awesome-Zero-Trust-Security-Architecture
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Zero Trust Security Architecture Banner" width="100%">
+</p>
 
-# Awesome Zero Trust Security Architecture
+# 🛡️ Awesome Zero Trust Security Architecture
 
-> A curated list of top Zero Trust Security Architecture platforms — both SaaS/Hosted commercial solutions and open-source alternatives for implementing identity-centric, least-privilege access.  
-> 🌟 Star this repo if you find it useful! 🌟
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Zero-Trust-Security-Architecture/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Zero-Trust-Security-Architecture?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Zero-Trust-Security-Architecture/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Zero-Trust-Security-Architecture?style=social" alt="GitHub Forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Zero-Trust-Security-Architecture/issues"><img src="https://img.shields.io/github/issues/ishandutta2007/Awesome-Zero-Trust-Security-Architecture" alt="GitHub Issues" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Zero-Trust-Security-Architecture/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC0%201.0-blue.svg" alt="License: CC0-1.0" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> 🌐 **Awesome Zero Trust Security Architecture** is an authoritative, SEO-curated compilation of the best **Zero Trust Network Access (ZTNA)**, **Secure Access Service Edge (SASE)**, **Security Service Edge (SSE)**, and **Software-Defined Perimeter (SDP)** solutions. Discover leading enterprise commercial SaaS platforms alongside actively maintained, battle-tested open-source self-hosted alternatives designed around continuous verification, least privilege, and identity-aware micro-segmentation.
+>
+> 🌟 **Star this repository if you find it helpful for designing or migrating your cybersecurity architecture!** 🌟
 
 ---
 
-## 📋 Table of Contents
+## 📑 Table of Contents
 
-- [SaaS / Hosted Platforms](#-saas--hosted-platforms)
-  - [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa)
-  - [Cloudflare Zero Trust](#cloudflare-zero-trust)
-  - [Palo Alto Prisma Access](#palo-alto-prisma-access)
-  - [Cisco Secure Access](#cisco-secure-access)
-  - [Akamai Enterprise Defender](#akamai-enterprise-defender)
-  - [Microsoft Entra Private Access](#microsoft-entra-private-access)
-  - [Perimeter 81](#perimeter-81)
-  - [Netskope Private Access](#netskope-private-access)
-  - [Twingate](#twingate)
-- [Open-Source Software](#-open-source-software)
-  - [OpenZiti](#openziti)
-  - [Pomerium](#pomerium)
-  - [Pritunl Zero](#pritunl-zero)
-  - [Octelium](#octelium)
-  - [Ferrumgate](#ferrumgate)
-- [Comparison at a Glance](#-comparison-at-a-glance)
-- [Contributing](#-contributing)
+- [🌐 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [🟦 SaaS / Hosted Platforms](#-saas--hosted-platforms)
+- [🟩 Open-Source Software](#-open-source-software)
+- [📊 Feature Comparison Matrix](#-feature-comparison-matrix)
+- [📈 Star History](#-star-history)
+- [💖 Support & Sponsorship](#-support--sponsorship)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+---
+
+## 🌐 Sector Overview & Market Dynamics
+
+The global **Zero Trust Security Architecture** market is valued at approximately **$35 billion to $42 billion (2024–2025)** and is projected to exceed **$90 billion by 2030**, advancing at a Compound Annual Growth Rate (CAGR) of **16%–17.3%**. 
+
+From a market structure standpoint, the sector is **moderately concentrated at the enterprise platform tier**—where a handful of dominant cybersecurity and cloud conglomerates (such as Microsoft, Palo Alto Networks, Cisco, and Zscaler) secure the bulk of Fortune 500 infrastructure—yet remains **highly fragmented across niche specialized capabilities** (such as identity-aware proxies, micro-segmentation, ephemeral JIT access, and decentralized mesh overlays), ensuring active competition rather than a pure winner-take-all monopoly.
 
 ---
 
 ## 🟦 SaaS / Hosted Platforms
 
-Commercial, cloud-hosted Zero Trust Security Architecture platforms. These are not open-source but are included as reference points for feature comparison.
+Below is a detailed comparison of premier commercial SaaS and cloud-hosted Zero Trust platforms, sorted in descending order by **Company Size (Revenue / Market Capitalization)**:
 
-### Zscaler Private Access (ZPA)
-**Type:** Cloud-native ZTNA with AI-powered segmentation  
-ZPA replaces traditional VPN by making private applications invisible to the internet until explicit policy approval. The architecture is inside-out: App Connectors in data centers establish outbound connections to Zscaler's Service Edge, eliminating inbound listening ports and public IP exposure [citation:1][citation:12]. Access decisions are identity-centric, leveraging existing IdPs for authentication without storing credentials. ZPA now includes AI-powered application segmentation recommendations that analyze usage patterns and suggest access policies, plus granular user-group-based controls instead of IP-based rules [citation:1].  
-**Best for:** Organizations seeking a mature, cloud-native ZTNA that eliminates network-level trust and scales across hybrid workforces.
-
-### Cloudflare Zero Trust
-**Type:** SASE platform with ZTNA, SWG, CASB, and DLP  
-Cloudflare Access provides identity-aware access to private applications and networks, with client-based and clientless (browser-based) options. Authentication supports any IdP via SAML/OIDC, with contextual policies based on IdP groups, geolocation, device posture, and session duration [citation:13]. The platform extends beyond ZTNA into a full SASE stack including DNS filtering, HTTP(S) inspection, antivirus, remote browser isolation, and CASB for SaaS risk detection — all manageable through a single console [citation:2]. Infrastructure-as-code automation via Terraform is supported.  
-**Best for:** Teams wanting a unified zero-trust and security stack from a single vendor with strong edge network performance.
-
-### Palo Alto Prisma Access
-**Type:** SASE with automated ZTNA Connector  
-Prisma Access enforces default-deny access to private applications, with administrators explicitly allowing resources based on User-ID, App-ID, and Device-ID constructs. The ZTNA Connector automates tunnel management — deploying VMs that automatically discover the nearest Prisma Access location and establish secure IPSec tunnels without manual IPSec/IKE configuration [citation:3]. Connector Groups provide redundancy (up to four connectors per group) and scale bandwidth to 2 Gbps per connector. Overlapped private networks (common after M&A) are handled via FQDN-based targeting without complex routing/NAT reconfiguration [citation:3]. Prisma Access 6.1 adds Precision AI-powered defenses including DNS hijacking detection, QR-code phishing protection, and exfiltration shield for stealthy data egress [citation:14].  
-**Best for:** Enterprises in the Palo Alto ecosystem needing automated private app access with advanced threat inspection.
-
-### Cisco Secure Access
-**Type:** Cloud-based SSE with ZTNA, SWG, CASB, and FWaaS  
-A converged SSE platform delivering ZTNA, secure web gateway, CASB, and firewall-as-a-service through a single license and management console [citation:4]. Integrates with SAML IdPs (AD, Azure AD, Okta, Ping) and Cisco's broader portfolio (SD-WAN, Splunk, XDR, ThousandEyes). The unified client simplifies user experience, automatically and transparently connecting to private apps via ZTNA or VPNaaS without multiple client launches [citation:4]. Posture policies support OS grace periods (up to 365 days) and non-OS requirements (firewall, password) with immediate blocking, plus configurable warn actions for monitoring [citation:15].  
-**Best for:** Cisco-centric organizations wanting a single SSE platform with deep integration into existing network and security investments.
-
-### Akamai Enterprise Defender
-**Type:** Edge-integrated zero trust with WAF and app acceleration  
-Combines malware protection, zero trust access, WAF, and application acceleration into a single subscription on Akamai's Intelligent Edge Platform [citation:5]. Zero trust access ensures authorized users and devices reach only needed internal applications, with dynamic decisions based on identity, device, and context. Applications are never exposed directly to the internet. The platform also provides SIG (Secure Internet Gateway) capabilities for controlling access to internet apps, plus DNS-based visibility and security. No hardware or appliances required.  
-**Best for:** Organizations wanting zero trust integrated with CDN-grade application delivery and WAF in a single edge service.
-
-### Microsoft Entra Private Access
-**Type:** Zero trust private access within Microsoft Entra Suite  
-Replaces corporate VPN with macro- and micro-segmented access to private applications, controlled via Conditional Access policies [citation:6]. Provides point-to-point zero trust access to private apps across all ports and protocols, preventing lateral movement and port scanning within corporate networks. Supports staged rollout, introducing zero trust for TCP and UDP applications over time. Integrated into the Microsoft identity fabric, leveraging existing Entra ID investments.  
-**Best for:** Microsoft-centric organizations wanting to extend Conditional Access policies to private application access.
-
-### Perimeter 81
-**Type:** Cloud ZTNA and SASE platform  
-A cloud-based zero-trust network access solution that has been integrated into SonicWall's SASE offering as Cloud Edge Secure Access [citation:7]. Provides identity-based access to private applications with cloud-based enforcement, available across 30+ global points of presence. The platform has pivoted toward a broader SASE model including secure web gateway and firewall capabilities.  
-**Best for:** Organizations seeking cloud-delivered ZTNA with a path toward SASE consolidation, particularly within the SonicWall ecosystem.
-
-### Netskope Private Access
-**Type:** ZTNA with AIOps Agent for operational automation  
-Provides least-privilege access to private applications with continuous auditing and optimization. The Private Access AIOps Agent analyzes existing policies and network destinations to automatically generate granular application segments reflecting actual access patterns, replacing broad IP subnets and wildcard domains with precise FQDNs and IP destinations [citation:8]. The agent continuously evaluates configurations, surfaces recommendations to remove dormant rules and unused ports, and helps maintain zero trust posture as organizations evolve.  
-**Best for:** Teams wanting AI-assisted ZTNA administration that reduces manual configuration effort and prevents policy sprawl.
-
-### Twingate
-**Type:** Identity Firewall with just-in-time privileged access  
-Unifies network access and privileged access into a single platform. Users authenticate once through existing IdPs (Okta, Azure AD, Google Workspace), and that identity passes through to every resource — Kubernetes clusters, PostgreSQL databases, internal APIs [citation:9]. Access is granted just-in-time based on identity, device posture, and context, then automatically expires (zero standing privileges). Every command and query is tied to a specific user or agent with forensic-level detail and session replay. Purpose-built for AI agent access with planned support for MCP and A2A protocols.  
-**Best for:** Cloud-native and AI-forward teams wanting ephemeral, identity-enforced access for both humans and agents without VPN infrastructure.
+| Platform / Vendor | Company Size (Market Cap / Rev) | Starting Price (Specific Tier) | Free Tier / Trial Limit | Key Architectural Focus | Deployment Model |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **[Microsoft Entra Private Access](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-private-access)** | ~$3.1 Trillion Market Cap / $245B+ Rev | **$5.00/user/month** (Standalone Private Access, annual commitment) | **No permanent free tier**; 30-day free trial (up to 100 user licenses via Microsoft Entra Suite) | Identity-centric private access extending Conditional Access across all TCP/UDP ports without legacy VPN | Cloud SSE / Microsoft 365 Fabric |
+| **[Cisco Secure Access](https://www.cisco.com/site/us/en/products/security/secure-access/index.html)** | ~$230 Billion Market Cap / $54B+ Rev | **$5.00/user/month** (~$60/user/year list for Essentials base tier; 50-user min) | **No permanent free tier**; 14-day fully featured proof-of-concept trial upon partner approval | Converged SSE delivering unified ZTNA, SWG, CASB, and FWaaS with VPNaaS failover | Global Cloud SSE Fabric |
+| **[Palo Alto Prisma Access](https://www.paloaltonetworks.com/sase/prisma-access)** | ~$115 Billion Market Cap / $8.0B+ Rev | **$10.00/user/month** ($120/user/year list for ZTNA Edition; 200-seat minimum) | **No permanent free tier**; 30-day proof-of-concept lab trial via certified partner | AI-driven SASE featuring automated ZTNA Connectors, App-ID, and inline Precision AI threat inspection | Worldwide Distributed Multi-Cloud |
+| **[Cloudflare Zero Trust](https://www.cloudflare.com/zero-trust/)** | ~$35 Billion Market Cap / $1.7B+ Rev | **$7.00/user/month** (Pay-as-you-go Plan, billed annually) | **Free forever plan: Up to 50 users included** (includes Cloudflare Access, DNS gateway filtering, and 3 locations) | Global Anycast edge network combining clientless browser isolation, ZTNA, CASB, and DNS firewall | Distributed Edge (330+ Cities) |
+| **[Zscaler Private Access (ZPA)](https://www.zscaler.com/products/zscaler-private-access)** | ~$30 Billion Market Cap / $2.1B+ Rev | **$6.00/user/month** (~$72/user/year base GSA schedule tier; 50-user min) | **No permanent free tier**; 30-day guided enterprise PoC trial for qualified domains | Inside-out outbound micro-tunnels making internal apps dark to the internet with AI segmentation | Zscaler Zero Trust Exchange |
+| **[Akamai Enterprise Defender](https://www.akamai.com/products/enterprise-application-access)** | ~$15 Billion Market Cap / $3.9B+ Rev | **$10.00/user/month** (~$120/user/year standalone Enterprise Application Access) | **No permanent free tier**; 60-day enterprise evaluation trial upon sales verification | Edge-integrated identity-aware reverse proxy integrated with Kona WAF and CDN routing | Akamai Intelligent Edge |
+| **[Netskope Private Access](https://www.netskope.com/products/private-access)** | ~$7.5 Billion Valuation / $500M+ ARR | **$8.50/user/month** ($102/user/year for 1,000+ seat tier; $114/user/year for 100–999 users) | **No permanent free tier**; 30-day enterprise proof-of-value trial on the NewEdge platform | ZTNA powered by AIOps agents to auto-generate precise FQDN application segments | Netskope NewEdge Network |
+| **[Perimeter 81 (SonicWall)](https://www.perimeter81.com/)** | ~$1.0 Billion Enterprise Valuation | **$8.00/user/month** (Essentials Tier, billed annually; 5-user minimum) | **No permanent free tier**; 30-day money-back guarantee with a 14-day assisted business trial | Turnkey cloud SDP/ZTNA designed for fast mid-market deployment with built-in SWG | Multi-Tenant Cloud Edge |
+| **[Twingate](https://www.twingate.com/)** | ~$350 Million Valuation / Series B | **$5.00/user/month** (Teams Tier, billed annually; up to 50 users) | **Free forever plan: Up to 5 users included** (includes 1 remote network, 2 connectors, and native IdP integration) | Peer-to-peer identity firewall providing ephemeral, zero standing privilege access for staff & AI agents | Split-Tunnel Cloud Controller |
 
 ---
 
 ## 🟩 Open-Source Software
 
-Self-hosted, community-driven Zero Trust Security Architecture tools. All listed projects offer source code you can deploy on your own infrastructure.
+Curated, community-driven, and self-hosted open-source Zero Trust solutions. The repositories below are sorted in descending order by **GitHub Star Count**:
 
-### OpenZiti
-**Stack:** Go | **License:** Apache 2.0  
-A comprehensive open-source zero trust networking platform that embeds zero trust principles directly into applications. Provides a zero trust overlay network with smart routing, enabling secure access control for users connecting to web applications and services [citation:10]. Offers SDKs for embedding zero-trust capabilities into applications that cannot natively implement them, bridging the gap for legacy or constrained workloads.  
-**Best for:** Developers and platform teams wanting to embed zero-trust networking directly into applications or build overlay networks.
-
-### Pomerium
-**Stack:** Go | **License:** Apache 2.0  
-A self-hosted identity-aware reverse proxy that implements zero trust by continuously verifying every action against identity, posture, and context rather than one-time authentication [citation:10]. Maintains control over data by avoiding third-party vendor traffic decryption. Addresses limitations of traditional tunneling by ensuring ongoing security checks, reducing lateral movement risk from compromised credentials.  
-**Best for:** Teams wanting a self-hosted, identity-aware access proxy for web applications with continuous verification.
-
-### Pritunl Zero
-**Stack:** Python | **License:** Open Source  
-An open-source BeyondCorp server providing zero trust security for privileged access to SSH and web applications. Offers SSO compatibility with OneLogin, Okta, Google, Azure, and Auth0 [citation:10]. Role-based access policies allow efficient user and service management. Access via any web browser without VPN clients, with quick configuration and no network modifications required. Includes SSH management and multi-factor authentication.  
-**Best for:** Organizations needing zero-trust SSH and web app access with SSO integration and minimal deployment friction.
-
-### Octelium
-**Stack:** Go / Kubernetes | **License:** Open Source  
-A modern, unified zero trust architecture built on identity-aware proxies controlling access at the application layer (L7). Supports both client-based VPN-like access over WireGuard/QUIC and client-less BeyondCorp access, all on Kubernetes for automatic scalability [citation:11]. Features include secretless access to resources protected by application-layer credentials (HTTP APIs without sharing keys, SSH without sharing passwords, databases via mTLS), fine-grained ABAC policy-as-code using CEL and OPA, continuous strong authentication with FIDO2/WebAuthn/TOTP/TPM 2.0, and OpenTelemetry-native auditing. No notion of "admin" user — zero standing privileges by default. Also supports MCP Gateways and A2A-based architectures for AI agent access.  
-**Best for:** Platform teams wanting a Kubernetes-native, L7-aware zero trust platform with policy-as-code and modern authentication.
-
-### Ferrumgate
-**Stack:** (Check repository) | **License:** Open Source  
-A zero trust platform utilizing a software-defined perimeter for secure remote access, cloud security, privileged access management, and IoT device protection [citation:10]. Features include support for multiple SSO methods, easy deployment without network changes, detailed activity insights, and integration with IP/FQDN intelligence providers for enhanced security.  
-**Best for:** Organizations wanting a software-defined perimeter approach to zero trust with SSO and threat intelligence integration.
+| Project / Repository | Stars | Technology Stack | License | Key Capabilities |
+| :--- | :---: | :--- | :--- | :--- |
+| **[NetBird](https://github.com/netbirdio/netbird)** | [![GitHub stars](https://img.shields.io/github/stars/netbirdio/netbird?style=social&color=white)](https://github.com/netbirdio/netbird/stargazers) | Go, WireGuard, React | AGPL-3.0 | Complete open-source identity-based Zero Trust overlay network powered by kernel WireGuard mesh routing, multi-factor SSO, and granular ACL policy rules. |
+| **[Teleport](https://github.com/gravitational/teleport)** | [![GitHub stars](https://img.shields.io/github/stars/gravitational/teleport?style=social&color=white)](https://github.com/gravitational/teleport/stargazers) | Go, Rust, WebAssembly | AGPL-3.0 / Apache 2.0 | Modern infrastructure access plane providing zero-trust identity-based access for SSH, Kubernetes clusters, databases, Windows desktops, and internal web applications. |
+| **[Firezone](https://github.com/firezone/firezone)** | [![GitHub stars](https://img.shields.io/github/stars/firezone/firezone?style=social&color=white)](https://github.com/firezone/firezone/stargazers) | Rust, Elixir, Swift, Kotlin | Apache-2.0 | Next-generation WireGuard-based ZTNA platform designed to replace legacy remote VPNs with granular role-based resource access, continuous posture checks, and modern IdP SSO. |
+| **[Pomerium](https://github.com/pomerium/pomerium)** | [![GitHub stars](https://img.shields.io/github/stars/pomerium/pomerium?style=social&color=white)](https://github.com/pomerium/pomerium/stargazers) | Go, Envoy Proxy | Apache-2.0 | Self-hosted, identity-aware reverse proxy implementing continuous session verification against identity, device posture, and context without decrypting traffic at third parties. |
+| **[OpenZiti](https://github.com/openziti/ziti)** | [![GitHub stars](https://img.shields.io/github/stars/openziti/ziti?style=social&color=white)](https://github.com/openziti/ziti/stargazers) | Go, C, Python, Swift | Apache-2.0 | Programmable zero-trust overlay fabric enabling application-embedded zero trust connectivity with software SDKs, eliminating inbound firewall ports and public DNS records. |
+| **[Octelium](https://github.com/octelium/octelium)** | [![GitHub stars](https://img.shields.io/github/stars/octelium/octelium?style=social&color=white)](https://github.com/octelium/octelium/stargazers) | Go, Kubernetes, QUIC | PolyForm Perimeter | Kubernetes-native Layer 7 unified Zero Trust platform offering secretless resource access, ABAC policy-as-code via CEL/OPA, clientless BeyondCorp proxies, and AI agent/MCP gateways. |
+| **[Ory Oathkeeper](https://github.com/ory/oathkeeper)** | [![GitHub stars](https://img.shields.io/github/stars/ory/oathkeeper?style=social&color=white)](https://github.com/ory/oathkeeper/stargazers) | Go | Apache-2.0 | Cloud-native Identity & Access Proxy (IAP) and policy decision point inspired by Google BeyondCorp, authenticating, authorizing, and mutating incoming HTTP(S) requests. |
+| **[DefGuard](https://github.com/DefGuard/defguard)** | [![GitHub stars](https://img.shields.io/github/stars/DefGuard/defguard?style=social&color=white)](https://github.com/DefGuard/defguard/stargazers) | Rust, Vue.js | Apache-2.0 | Enterprise-ready Zero Trust VPN gateway combining WireGuard, real-time multi-factor authentication (2FA/WebAuthn/TOTP), LDAP/OpenID identity sync, and device enrollment. |
+| **[Pritunl Zero](https://github.com/pritunl/pritunl-zero)** | [![GitHub stars](https://img.shields.io/github/stars/pritunl/pritunl-zero?style=social&color=white)](https://github.com/pritunl/pritunl-zero/stargazers) | Python | Pritunl Free License | Zero Trust BeyondCorp access server granting secure, browser-based SSO and role-based access to internal web services and SSH bastions without installing client software. |
+| **[FerrumGate](https://github.com/ferrumgate/secure.install)** | [![GitHub stars](https://img.shields.io/github/stars/ferrumgate/secure.install?style=social&color=white)](https://github.com/ferrumgate/secure.install/stargazers) | Go, Python, Docker | GPL-3.0 / Commercial | Software-Defined Perimeter (SDP) and ZTNA gateway orchestrating secure micro-segmented access to internal apps, RDP, and databases through Dockerized microservices. |
 
 ---
 
-## 📊 Comparison at a Glance
+## 📊 Feature Comparison Matrix
 
-| Software | License | Type | Client-Based | Clientless | Self-Hosted | Best For |
-|----------|---------|------|--------------|------------|-------------|----------|
-| **Zscaler ZPA** | Proprietary | Cloud ZTNA | ✅ | Limited | ❌ | Cloud-native VPN replacement |
-| **Cloudflare Zero Trust** | Proprietary | SASE | ✅ | ✅ (Browser SSH/VNC) | ❌ | Unified zero trust stack |
-| **Prisma Access** | Proprietary | SASE | ✅ | ❌ | ❌ | Automated ZTNA + threat inspection |
-| **Cisco Secure Access** | Proprietary | SSE | ✅ | ❌ | ❌ | Cisco ecosystem integration |
-| **Akamai Enterprise Defender** | Proprietary | Edge zero trust | ✅ | ❌ | ❌ | Edge + WAF + acceleration |
-| **Entra Private Access** | Proprietary | ZTNA | ✅ | ❌ | ❌ | Microsoft Conditional Access |
-| **Netskope Private Access** | Proprietary | ZTNA | ✅ | ❌ | ❌ | AI-assisted administration |
-| **Twingate** | Proprietary | Identity Firewall | ✅ | ❌ | ❌ | JIT access for humans + AI agents |
-| **OpenZiti** | Apache 2.0 | Zero trust overlay | ✅ | ✅ | ✅ | Embedding zero trust in apps |
-| **Pomerium** | Apache 2.0 | Identity-aware proxy | ❌ | ✅ | ✅ | Continuous verification proxy |
-| **Pritunl Zero** | Open Source | BeyondCorp server | ❌ | ✅ | ✅ | Zero-trust SSH + web apps |
-| **Octelium** | Open Source | L7 zero trust platform | ✅ | ✅ | ✅ | K8s-native + AI agent access |
-| **Ferrumgate** | Open Source | SDP zero trust | ✅ | ❌ | ✅ | Software-defined perimeter |
+| Solution Name | Deployment | Primary Model | Clientless Web Access | Ephemeral / JIT Access | Device Posture Check | Best Architectural Match |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Microsoft Entra Private Access** | Cloud SSE | ZTNA | ❌ | ✅ (PIM) | ✅ (Intune) | Large Microsoft 365 / Azure enterprise stacks |
+| **Cisco Secure Access** | Cloud SSE | SASE / SSE | ✅ (HTTP) | ❌ | ✅ (AnyConnect) | Cisco enterprise routing & ThousandEyes environments |
+| **Palo Alto Prisma Access** | Cloud SSE | SASE | ❌ | ❌ | ✅ (GlobalProtect) | Hybrid enterprises requiring deep Next-Gen FW inspection |
+| **Cloudflare Zero Trust** | Edge Anycast | SASE / ZTNA | ✅ (SSH, VNC, Web) | ❌ | ✅ (WARP) | Fast-moving teams demanding unified edge performance |
+| **Zscaler Private Access** | Cloud Native | ZTNA | ✅ (Browser) | ❌ | ✅ (Zscaler Client) | Global corporate workforces replacing branch VPNs |
+| **Akamai Enterprise Defender** | Intelligent Edge | ZTNA + WAF | ✅ | ❌ | ✅ | Internet-facing web application security & CDN delivery |
+| **Netskope Private Access** | Cloud SSE | ZTNA | ❌ | ❌ | ✅ | Data-sensitive enterprises needing granular CASB & DLP |
+| **Perimeter 81 (SonicWall)** | Cloud Edge | SDP / SASE | ❌ | ❌ | ✅ | Mid-market businesses wanting turnkey zero-trust setup |
+| **Twingate** | Distributed | Identity Firewall | ❌ | ✅ (Native JIT) | ✅ (Zero Trust) | Modern engineering squads, DevOps, and AI agent workloads |
+| **NetBird** | Self-Hosted / SaaS | WireGuard Mesh | ❌ | ❌ | ✅ | Peer-to-peer hybrid cloud & private container meshes |
+| **Teleport** | Self-Hosted / SaaS | Zero Trust Access | ✅ (Web UI) | ✅ (Dual Auth) | ✅ (TPM) | Multi-cloud engineers needing unified SSH, DB & K8s access |
+| **Firezone** | Self-Hosted / SaaS | WireGuard ZTNA | ❌ | ❌ | ✅ | Modern alternative to OpenVPN & WireGuard servers |
+| **Pomerium** | Self-Hosted | Identity Proxy | ✅ | ❌ | ✅ | Internal web applications needing continuous authentication |
+| **OpenZiti** | Self-Hosted | Mesh Overlay | ✅ (Ziti SDK) | ❌ | ✅ | Developers embedding zero-trust networking directly in code |
+| **Octelium** | Self-Hosted (K8s) | L7 SDP / Gateway | ✅ | ✅ (No Admin) | ✅ (WebAuthn) | Cloud-native Kubernetes platforms and AI/MCP agents |
+| **Ory Oathkeeper** | Self-Hosted | Reverse Proxy | ✅ | ❌ | ❌ | Cloud-native microservices and API gateway authorization |
+| **DefGuard** | Self-Hosted | WireGuard VPN | ❌ | ❌ | ✅ (YubiKey) | Homelabs and enterprises needing WireGuard with true 2FA |
+| **Pritunl Zero** | Self-Hosted | BeyondCorp Proxy | ✅ | ❌ | ❌ | Frictionless browser-based SSH and internal web portal access |
+| **FerrumGate** | Self-Hosted | SDP Gateway | ✅ | ❌ | ✅ | Fast Docker-based SDP deployment for SMB infrastructure |
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Zero-Trust-Security-Architecture&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Zero-Trust-Security-Architecture&type=date&legend=top-left)
+
+---
+
+## 💖 Support & Sponsorship
+
+If **Awesome Zero Trust Security Architecture** has streamlined your security evaluations, saved your engineering team hours of research, or helped protect your infrastructure:
+
+- ⭐ **Star this repository** to help other cybersecurity professionals find it.
+- 🍴 **Fork it** and contribute improvements, updates, or newly discovered tools.
+- 📢 **Share it** on LinkedIn, X/Twitter, Discord, or with your internal SecOps/DevOps groups.
+- ☕ **Buy us a coffee:** You can support the ongoing curation and maintenance of this list directly on the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007). Your support keeps these resources independent, fresh, and thoroughly verified!
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you know of an open-source Zero Trust Security Architecture tool that should be listed here, please open a pull request with:
+Contributions are warmly welcomed! If you have developed or discovered an open-source Zero Trust tool, ZTNA platform, or SDP service:
 
-- Project name and URL
-- Brief description (1–2 sentences)
-- Stack and license
-- Why it stands out
-
-Please ensure the project is actively maintained (releases within the last 12 months) and genuinely open-source.
+1. 🍴 Fork the repository.
+2. 🌿 Create a feature branch: `git checkout -b feature/add-new-tool`.
+3. 📝 Add your entry with accurate metadata (description, stack, license, and repository URL).
+4. 🚀 Open a Pull Request following standard conventions.
 
 ---
 
 ## 📄 License
 
-This list is released under CC0 1.0 Universal (Public Domain). The software projects listed retain their respective licenses.
-
----
-
-⭐ **If this list helped you discover a useful tool, please star the repo!** ⭐
+This compilation is dedicated to the public domain under the [Creative Commons Zero v1.0 Universal](LICENSE) (CC0 1.0). Third-party trademarks and software projects retain their respective proprietary or open-source licenses.
